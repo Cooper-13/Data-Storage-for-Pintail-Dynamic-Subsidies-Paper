@@ -1,0 +1,26 @@
+{
+    "id": "4A4D45E3",
+    "path": "C:/Users/bmattsson/Seafile/My Seafile Library/Programs/R/Pintail_subsidies/PintailSimulation_combined_scripts_v5.R",
+    "project_path": "PintailSimulation_combined_scripts_v5.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1782476762748.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "808,0",
+        "scrollLine": "780"
+    },
+    "folds": "0|15|18|0|\n83|32|96|0|\n97|37|126|0|\n127|25|206|0|\n148|52|204|38|\n207|30|208|0|\n209|45|235|0|\n406|36|408|0|\n493|53|525|0|\n539|18|557|2|\n558|16|573|2|\n574|18|574|22|\n626|24|678|2|\n790|45|803|2|\n827|28|830|0|\n",
+    "lastKnownWriteTime": 1782485742,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1782485742959,
+    "read_only": false,
+    "read_only_alternatives": []
+}

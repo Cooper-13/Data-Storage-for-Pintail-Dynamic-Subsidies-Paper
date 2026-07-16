@@ -1,0 +1,18 @@
+# v1
+create_season_vars_fn <- function(N, ind) {
+  n <- length(N); idxs <- (n-2):n; steps <- 2:0
+  seasons <- ((ind - steps - 1) %% 3) + 1
+  totals_one <- function(elem) {
+    regs <- names(elem[[1]])
+    sapply(regs, function(r) sum(sapply(elem, function(v) v[r]), na.rm = TRUE))
+  }
+  vals <- unlist(Map(function(elem, s) {
+    t <- totals_one(elem)
+    setNames(t, paste0(names(t), "_season_", s))
+  }, N[idxs], seasons), use.names = TRUE)
+  list2env(as.list(vals), envir = .GlobalEnv)
+  invisible(vals)
+}
+#end of code
+season_vars <- create_season_vars_fn(N,ind)
+print(season_vars)

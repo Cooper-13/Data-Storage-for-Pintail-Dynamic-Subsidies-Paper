@@ -1,0 +1,26 @@
+Network simulation and Ds code for Northern Pintails - Written by Joanna Bieri and Christine Sample.
+
+All model assumptions and simulations match the formulation found in Mattsson et al. [2012]
+Cr calculations follow the formulation in Weiderholt et al [in press]
+
+
+
+To calculate Ds values:
+
+** Keep file structure in tact - folder locations matter!
+
+IN THE FOLDER: FinalCodePintails:
+
+1. Source the file PintailSimulation.R to numerically find the equilibrium population abundance numbers. This code takes values from the .xlsx spreadsheets found in the Baseline1 folder, simulates the network until the population reaches equilibrium, and prints final population counts. The final population numbers are stored in Baseline1/SteadyStatePopulation.csv. The assumptions about density dependent survival and transition rates are programmed in SpeciesFunctions.R
+
+2. Source the file DsCode.R. This will output both the season dependent and average DS values. It uses the population counts from PintailSimulation.R and the Cr values (male/female) from Cr_Pintail.R
+
+
+
+
+General information about other files and dependencies:
+
+** The program CR_ONEEQ.R contains the general CR eqaution. It is called by Cr_pintail.R
+** Cr_pintail.R gathers pintail specific survival and transition rates to be used in CR_ONEEQ.R. It is called by DsCode.R and uses data values calculated by PintailSimulation.R and SpeciesFunctions.R
+** The program SpeciesFunctions.R contains density dependent assumptions for the pintails. It is used by the NetworkCode1.1 and Cr_pintail.R
+** The folder NetworkCode1.1 contains code to simulate the pintail population. Users should not need to interact with the code located in this folder. It is called by PintailSimulation.R.

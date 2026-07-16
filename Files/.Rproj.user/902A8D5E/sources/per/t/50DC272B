@@ -1,0 +1,26 @@
+{
+    "id": "50DC272B",
+    "path": "C:/Users/bmattsson/Seafile/My Seafile Library/Programs/R/Pintail_subsidies/ecosystem_service_flows_v8.R",
+    "project_path": "ecosystem_service_flows_v8.R",
+    "type": "r_source",
+    "hash": "467479937",
+    "contents": "",
+    "dirty": false,
+    "created": 1778239142820.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "13,60",
+        "scrollLine": "0"
+    },
+    "folds": "33|27|141|0|\n168|105|174|2|\n",
+    "lastKnownWriteTime": 1781349782,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1781349782043,
+    "read_only": false,
+    "read_only_alternatives": []
+}

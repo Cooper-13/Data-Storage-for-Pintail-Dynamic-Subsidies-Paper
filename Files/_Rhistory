@@ -1,0 +1,24 @@
+source('C:/Users/christine/Google Drive/research/NIMBioS/PintailSubsidies/CrCodeNew.R')
+setwd("C:/Users/christine/Google Drive/research/NIMBioS/PintailSubsidies")
+source('C:/Users/christine/Google Drive/research/NIMBioS/PintailSubsidies/CrCodeNew.R')
+setwd("C:/Users/christine/Google Drive/research/NIMBioS/PintailSubsidies/Code2/FinalCodePintails")
+source('C:/Users/christine/Google Drive/research/NIMBioS/PintailSubsidies/Code2/FinalCodePintails/PintailSimulation.R')
+source('C:/Users/christine/Google Drive/research/NIMBioS/PintailSubsidies/Code2/FinalCodePintails/Cr_pintail.R')
+source('C:/Users/christine/Google Drive/research/NIMBioS/PintailSubsidies/Code2/FinalCodePintails/PintailSimulation.R')
+source('C:/Users/christine/Google Drive/research/NIMBioS/PintailSubsidies/Code/FinalCodePintails/DsCode.R')
+View(CR)
+View(CR)
+View(POP)
+View(POP)
+View(DS)
+View(DS)
+source('C:/Users/christine/Google Drive/research/NIMBioS/PintailSubsidies/Code2/FinalCodePintails/PintailSimulation.R')
+source('C:/Users/christine/Google Drive/research/NIMBioS/PintailSubsidies/Code/FinalCodePintails/DsCode.R')
+print(DSind)
+(.1288548+.2177644)/3
+source('C:/Users/christine/Google Drive/research/NIMBioS/PintailSubsidies/Code/FinalCodePintails/DsCode.R')
+(.15038+.265827)/2
+(.126435+.22107)/2
+(0.08369+.152596)/2
+0.21779360*3/2
+0.11553973*3/2

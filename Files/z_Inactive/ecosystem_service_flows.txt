@@ -1,0 +1,107 @@
+#Ecosystem service flows adapted from Darius J. Semmens and Kenneth J. Bagstad
+
+
+#Ecosystem services (ES)----
+Region <- c("PC", "SEUS", "C", "AK", "NCan") #PC (Pacific Coast), SEUS (Southeast US), C (Central), AK (Alaska), NCan (Northern Canada)
+
+Di <- c(0.2178, 0.1155, 0.3225, 0.2654, 0.0788) #proportional dependence of a species or subpopulation on location i
+
+Vi <- c(46415839, 17215010, 8497828, 25606513, 3870155) #the total annual value of ESs provided by the species at location i
+
+MOi <- (sum(Vi)-Vi)*Di #outgoing migration support provided by location i to other locations
+
+MIi <- Vi*(1-Di) #incoming migration support received at location i from other locations
+
+MLi <- Vi*Di #locally received migration support from location i to location i
+
+Yi <- sum(Vi)*Di-Vi #spatial subsidy (net benefit flow to/from each location), or Yi= MOi-MIi
+
+YLi <- ifelse(Yi<0, Vi+Yi, Vi) #net local flow (net benefit flow from ecosystems to people within each region)
+
+ES <- data.frame(Region, Di, Vi, MOi, MIi, MLi, Yi, YLi)
+print(ES)
+
+
+#Ecosystem services flows (ESF)----
+#Abb.: _in (gross flows into region), _out (gross flows out of region), 
+#      WW (Western Wintering), CW (Central Wintering), SB (Southern Breeding), AB (Alaska Breeding), 
+#      NB (Northern Breeding)
+WW_in <- c(ES[ES$Region == "PC", "Di"]*ES[ES$Region == "PC", "Vi"], 
+           ES[ES$Region == "SEUS", "Di"]*ES[ES$Region == "PC", "Vi"], 
+           ES[ES$Region == "C", "Di"]*ES[ES$Region == "PC", "Vi"], 
+           ES[ES$Region == "AK", "Di"]*ES[ES$Region == "PC", "Vi"], 
+           ES[ES$Region == "NCan", "Di"]*ES[ES$Region == "PC", "Vi"])
+
+WW_out <- c(ES[ES$Region == "PC", "Vi"]*ES[ES$Region == "PC", "Di"], 
+            ES[ES$Region == "SEUS", "Vi"]*ES[ES$Region == "PC", "Di"],
+            ES[ES$Region == "C", "Vi"]*ES[ES$Region == "PC", "Di"],
+            ES[ES$Region == "AK", "Vi"]*ES[ES$Region == "PC", "Di"],
+            ES[ES$Region == "NCan", "Vi"]*ES[ES$Region == "PC", "Di"])
+
+CW_in <- c(ES[ES$Region == "PC", "Di"]*ES[ES$Region == "SEUS", "Vi"], 
+           ES[ES$Region == "SEUS", "Di"]*ES[ES$Region == "SEUS", "Vi"], 
+           ES[ES$Region == "C", "Di"]*ES[ES$Region == "SEUS", "Vi"], 
+           ES[ES$Region == "AK", "Di"]*ES[ES$Region == "SEUS", "Vi"], 
+           ES[ES$Region == "NCan", "Di"]*ES[ES$Region == "SEUS", "Vi"])
+
+CW_out <- c(ES[ES$Region == "PC", "Vi"]*ES[ES$Region == "SEUS", "Di"], 
+            ES[ES$Region == "SEUS", "Vi"]*ES[ES$Region == "SEUS", "Di"],
+            ES[ES$Region == "C", "Vi"]*ES[ES$Region == "SEUS", "Di"],
+            ES[ES$Region == "AK", "Vi"]*ES[ES$Region == "SEUS", "Di"],
+            ES[ES$Region == "NCan", "Vi"]*ES[ES$Region == "SEUS", "Di"])
+
+SB_in <- c(ES[ES$Region == "PC", "Di"]*ES[ES$Region == "C", "Vi"], 
+           ES[ES$Region == "SEUS", "Di"]*ES[ES$Region == "C", "Vi"], 
+           ES[ES$Region == "C", "Di"]*ES[ES$Region == "C", "Vi"], 
+           ES[ES$Region == "AK", "Di"]*ES[ES$Region == "C", "Vi"], 
+           ES[ES$Region == "NCan", "Di"]*ES[ES$Region == "C", "Vi"])
+
+SB_out <- c(ES[ES$Region == "PC", "Vi"]*ES[ES$Region == "C", "Di"], 
+            ES[ES$Region == "SEUS", "Vi"]*ES[ES$Region == "C", "Di"],
+            ES[ES$Region == "C", "Vi"]*ES[ES$Region == "C", "Di"],
+            ES[ES$Region == "AK", "Vi"]*ES[ES$Region == "C", "Di"],
+            ES[ES$Region == "NCan", "Vi"]*ES[ES$Region == "C", "Di"])
+
+AB_in <- c(ES[ES$Region == "PC", "Di"]*ES[ES$Region == "AK", "Vi"], 
+           ES[ES$Region == "SEUS", "Di"]*ES[ES$Region == "AK", "Vi"], 
+           ES[ES$Region == "C", "Di"]*ES[ES$Region == "AK", "Vi"], 
+           ES[ES$Region == "AK", "Di"]*ES[ES$Region == "AK", "Vi"], 
+           ES[ES$Region == "NCan", "Di"]*ES[ES$Region == "AK", "Vi"])
+
+AB_out <- c(ES[ES$Region == "PC", "Vi"]*ES[ES$Region == "AK", "Di"], 
+            ES[ES$Region == "SEUS", "Vi"]*ES[ES$Region == "AK", "Di"],
+            ES[ES$Region == "C", "Vi"]*ES[ES$Region == "AK", "Di"],
+            ES[ES$Region == "AK", "Vi"]*ES[ES$Region == "AK", "Di"],
+            ES[ES$Region == "NCan", "Vi"]*ES[ES$Region == "AK", "Di"])
+
+NB_in <- c(ES[ES$Region == "PC", "Di"]*ES[ES$Region == "NCan", "Vi"], 
+           ES[ES$Region == "SEUS", "Di"]*ES[ES$Region == "NCan", "Vi"], 
+           ES[ES$Region == "C", "Di"]*ES[ES$Region == "NCan", "Vi"], 
+           ES[ES$Region == "AK", "Di"]*ES[ES$Region == "NCan", "Vi"], 
+           ES[ES$Region == "NCan", "Di"]*ES[ES$Region == "NCan", "Vi"])
+
+NB_out <- c(ES[ES$Region == "PC", "Vi"]*ES[ES$Region == "NCan", "Di"], 
+            ES[ES$Region == "SEUS", "Vi"]*ES[ES$Region == "NCan", "Di"],
+            ES[ES$Region == "C", "Vi"]*ES[ES$Region == "NCan", "Di"],
+            ES[ES$Region == "AK", "Vi"]*ES[ES$Region == "NCan", "Di"],
+            ES[ES$Region == "NCan", "Vi"]*ES[ES$Region == "NCan", "Di"])
+
+ESF <- data.frame(Region, WW_in, WW_out, CW_in, CW_out, SB_in, SB_out, AB_in, AB_out, NB_in, NB_out)
+print(ESF)
+
+
+#Ecosystem services net flows (ESNF)----
+C <- c(ES[ES$Region == "C", "Yi"]*ES[ES$Region == "PC", "Yi"]/(ES[ES$Region == "PC", "Yi"]+ES[ES$Region == "SEUS", "Yi"]),
+       ES[ES$Region == "C", "Yi"]*ES[ES$Region == "SEUS", "Yi"]/(ES[ES$Region == "SEUS", "Yi"]+ES[ES$Region == "PC", "Yi"]),
+       "-", "-", "-")
+
+AK <- c(ES[ES$Region == "AK", "Yi"]*ES[ES$Region == "PC", "Yi"]/(ES[ES$Region == "PC", "Yi"]+ES[ES$Region == "SEUS", "Yi"]),
+        ES[ES$Region == "AK", "Yi"]*ES[ES$Region == "SEUS", "Yi"]/(ES[ES$Region == "SEUS", "Yi"]+ES[ES$Region == "PC", "Yi"]),
+        "-", "-", "-")
+
+NCan <- c(ES[ES$Region == "NCan", "Yi"]*ES[ES$Region == "PC", "Yi"]/(ES[ES$Region == "PC", "Yi"]+ES[ES$Region == "SEUS", "Yi"]),
+          ES[ES$Region == "NCan", "Yi"]*ES[ES$Region == "SEUS", "Yi"]/(ES[ES$Region == "SEUS", "Yi"]+ES[ES$Region == "PC", "Yi"]),
+          "-", "-", "-")
+
+ESNF <- data.frame(Region, YLi, C, AK, NCan)
+print(ESNF)

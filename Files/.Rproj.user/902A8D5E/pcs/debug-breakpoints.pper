@@ -1,0 +1,21 @@
+{
+    "debugBreakpointsState": {
+        "breakpoints": [
+            {
+                "id": 18,
+                "path": "C:/Users/bmattsson/Seafile/My Seafile Library/Programs/R/Pintail_subsidies/population_model_functions.R",
+                "line_number": 211,
+                "function_steps": "2",
+                "function_name": "Cr_fn",
+                "state": 1,
+                "editor_state": 1,
+                "editor_line_number": 211,
+                "is_pending_debug_completion": false,
+                "needs_updated_steps": true,
+                "type": 0,
+                "is_package_breakpoint": false,
+                "package_name": ""
+            }
+        ]
+    }
+}
