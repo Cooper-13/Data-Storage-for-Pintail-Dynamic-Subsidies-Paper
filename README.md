@@ -15,7 +15,7 @@ This project explores how regional conservation interventions (e.g., harvest mor
 ---
 
 ## 2. Repository structure
-'''
+```
 ├─ code/                # Analysis scripts (R), functions, helpers
 ├─ config/              # Configuration files (e.g., parameter YAML)
 ├─ data/                # Minimal example data for tests; large data via external link
@@ -26,7 +26,7 @@ This project explores how regional conservation interventions (e.g., harvest mor
 ├─ code.json            # USGS/metadata JSON
 ├─ LICENSE              # License (e.g., CC BY 4.0)
 └─ README.md
-'''
+```
 
 ## 3. Getting started
 
