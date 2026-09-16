@@ -15,7 +15,7 @@ This project explores how regional conservation interventions (e.g., harvest mor
 ---
 
 ## 2. Repository structure
-
+'''
 ├─ code/                # Analysis scripts (R), functions, helpers
 ├─ config/              # Configuration files (e.g., parameter YAML)
 ├─ data/                # Minimal example data for tests; large data via external link
@@ -26,14 +26,11 @@ This project explores how regional conservation interventions (e.g., harvest mor
 ├─ code.json            # USGS/metadata JSON
 ├─ LICENSE              # License (e.g., CC BY 4.0)
 └─ README.md
+'''
 
 ## 3. Getting started
 
-> For large files, only **small samples** should live in `data/`. Full data are provided via the external archive link above. This keeps the repo lightweight and reproducible while meeting FAIR/archival expectations. 【2-bef018】
-
----
-
-## 3. Getting started
+Full data are provided via the external archive link above. This keeps the repo lightweight and reproducible while meeting FAIR/archival expectations.
 
 ### Prerequisites
 - R ≥ 4.3 and/or Python ≥ 3.10
