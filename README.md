@@ -59,7 +59,7 @@ After downloading, place large files in data/inputs/ as indicated by config/path
 R -e "targets::tar_make()"
 
 ## 6. License
-CC0 1.0 (public domain)
+MIT license (see license file for more)
 
 ## 7. Contributing
 Please open issues or pull requests with proposed changes. Use the provided templates and follow the coding style guidelines (docs/style.md).
